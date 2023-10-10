@@ -1,0 +1,30 @@
+{% load static i18n %}
+<!DOCTYPE html>
+{% get_current_language as language_code %}
+
+<html lang="pt-BR">
+  <head>
+    <title>{% spaceless %}{% block title %}Home{% endblock %}{% endspaceless %}</title>
+    <meta charset="UTF-8">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block site_meta %}{% endblock %}
+    {% block seo-meta %}
+      <meta name="robots" content="index,follow">
+    {% endblock %}
+
+    {% block extra_css %}{% endblock %}
+    {% block head_js %}{% endblock %}
+
+    <link href="{% static 'css/site.css' %}" rel="stylesheet" type="text/css" />
+  </head>
+
+
+  <body>
+    {% block content %}{% endblock %}
+
+    {% block footer_js %}{% endblock %}
+  </body>
+</html>
