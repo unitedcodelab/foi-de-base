@@ -1,9 +1,11 @@
 .navbar {
     background-color: #151515 !important;
+    padding: 15px;
 }
 
 .container-fluid {
     background-color: #151515 !important;
+    padding: 0 8%;
     height: 50px;
 }
 
@@ -13,7 +15,9 @@
 
 .input-container {
     position: absolute;
-    top: 20px;
+    top: 25px;
+    width: 22%;
+    right: 40%;
 }
 
 input {
@@ -22,8 +26,8 @@ input {
 
 .lupa {
     position: absolute;
-    top: 28px;
-    right: 39%;
+    top: 33px;
+    right: 41%;
 }
 
 .search {
