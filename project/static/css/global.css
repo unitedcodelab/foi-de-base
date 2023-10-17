@@ -1,3 +1,11 @@
+:root {
+    --primary_blue: #2700c2;
+    --secondary_blue: #4A90E2;
+    --primary_white: #f5f5f5;
+    --primary_grey: #4A4A4A;
+    --primary_green: #aaffa8;
+}
+
 * {
     margin: 0;
     padding: 0;
