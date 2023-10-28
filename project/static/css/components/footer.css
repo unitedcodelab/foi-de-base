@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;500;600&family=Roboto+Slab:wght@900&display=swap');
 
-
-
 * {
     font-family: 'Chakra Petch', sans-serif;
 }
@@ -10,7 +8,7 @@ body {
     background-color: #3b3b3b;
 }
 
-footer {
+footer > div {
     border-radius: 10px 10px 0px 0px;
     background-color: azure;
     padding: 2rem 2.5rem;
