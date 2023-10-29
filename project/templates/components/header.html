@@ -1,17 +1,17 @@
 <header>
   <nav class="navbar border-bottom border-body bg-black" data-bs-theme="dark">
-    <div class="container-fluid mt-n1 " style="justify-content: space-around;">
-      <button class="navbar-brand" style="background-color: transparent; border: 0px;" >
+    <div class="container-fluid mt-n1 justify-content-around">
+      <button class="navbar-brand bg-transparent border-0 open-side-bar">
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" >
           <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
         </svg>
       </button>
-      <form class="d-flex" role="search">
-        <div class="input-container">
-          <input class="form-control me-2 search rounded-pill" type="search" placeholder="Procurar" style="width: 400px;">
+      <form class="d-flex position-relative w-25" role="search">
+        <div class="input-container w-100">
+          <input class="form-control me-2 search rounded-pill" type="search" placeholder="Procurar">
         </div> 
         <label>
-          <i class="fa-solid fa-magnifying-glass position-absolute top-50 start-50 translate-middle" style="color: #ffffff; margin-left: 190px;"></i>
+          <a href="#"><i class=" h-100 d-flex align-items-center fa-solid fa-magnifying-glass position-absolute top-50 translate-middle color text-white" style="right: 20px;"></i></a>
         </label>
       </form>
       <a href="#">
@@ -20,3 +20,18 @@
     </div>
   </nav>
 </header>
+
+{% block extra_js %}
+  <script>
+    const menuButton = document.querySelector('.open-side-bar');
+    // const sideBar = document.querySelector('.side-bar');
+    menuButton.addEventListener('click', function() {
+      alert('Clicou');
+      // adiciona propiedade de display (que por padrão é none)
+      // joga para direita
+
+      // criar opção de clicar em qualquer lugar para fechar e um botão de fechar.
+    });
+  </script>
+{% endblock %}
+
