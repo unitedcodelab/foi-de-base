@@ -1,0 +1,32 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+
+.bg-img {
+    background-image: url(./components/imagem-dev.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    opacity: 1;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Adiciona uma camada preta com 50% de opacidade */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
