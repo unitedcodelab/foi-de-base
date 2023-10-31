@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
+<!-- Criei uma classe bg-img e overlay no home.css para ajustar o fundo da tela mas não estou conseguindo chamar o home.css para o home.html -->
+
 {% block content %}
-  <main class="d-flex flex-column align-items-start justify-content-center px-3">
+  <main class="bg-img d-flex flex-column align-items-start justify-content-center px-3 text-light bg-dark">
+    <div class="overlay"></div>
     <div class="bg-img position-relative">
       <div class="overlay">
         <h1 class="fs-2 text-decoration-underline">United Code Lab</h1>
