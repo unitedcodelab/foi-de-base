@@ -1,19 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 <!-- o segredo está em entender como funciona os "blocks" do django... -->
 <!-- dá uma olhada com mais carinho no base.html e vc consegue! -->
 
 {% block content %}
-  <main class="bg-img d-flex flex-column align-items-start justify-content-center px-3 text-light bg-dark">
-    <div class="overlay"></div>
-    <div class="bg-img position-relative">
-      <div class="overlay">
+  <main class="bg-img overlay d-flex flex-column align-items-start justify-content-center px-3 text-light bg-dark">
         <h1 class="fs-2 text-decoration-underline">United Code Lab</h1>
         <p class="lead fs-1 fw-bold">Sua Dúvida <br> Tem Solução</p>
         <p class="lead">
           <button class="btn btn-lg btn-secondary">Faça uma pergunta</button>
         </p>
-      </div>
-    </div>
   </main>
 {% endblock %}
