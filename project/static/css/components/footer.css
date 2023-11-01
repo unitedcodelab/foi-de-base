@@ -4,48 +4,17 @@
     font-family: 'Chakra Petch', sans-serif;
 }
 
-body {
-    background-color: #3b3b3b;
-}
-
 footer > div {
     border-radius: 10px 10px 0px 0px;
     background-color: azure;
     padding: 2rem 2.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-between;
-    position: absolute;
-    bottom: 0;
-    width: 80%;
-    align-items: center;
 }
-
-#footer_text {
-    display: flex;
-    gap: 30px;
-    font-size: 20px;
-    margin-left: 20px;
-}
-
-#social_medias {
-    display: flex;
-    gap: 1.2rem;
-    border-radius: 1px;
-}
-
 
 a {
-    text-decoration: none;
     color: #3b3b3b;
     transition: 300ms ease-in-out;
 }
 
 a:hover {
     color: #269FE6;
-}
-
-#footer_orientation {
-    display: flex;
-    justify-content: center;
 }
