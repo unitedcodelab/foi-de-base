@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar border-bottom border-body bg-black" data-bs-theme="dark">
     <div class="container-fluid mt-n1 justify-content-around">
-      <button class="navbar-brand bg-transparent border-0 open-side-bar">
+      <button class="navbar-brand bg-transparent border-0 open-side-bar" onclick="openModal()" id="open-side-bar">
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" >
           <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
         </svg>
@@ -19,10 +19,10 @@
       </a>
     </div>
 
-    <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    {% comment %} <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
     <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasLabel">United Code Lab</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn-close side-bar" data-bs-dismiss="offcanvas" aria-label="Close" onclick="handleClickOutside()" id="side-bar"></button>
   </div>
   <hr class="border border-primary border-1 border-secondary opacity-50">
   <div class="offcanvas-body">
@@ -50,21 +50,35 @@
       </div>
     </div>
   </div>
-</div>
+</div> {% endcomment %}
   </nav>
 </header>
 
 {% block extra_js %}
   <script>
-    const menuButton = document.querySelector('.open-side-bar');
-    // const sideBar = document.querySelector('.side-bar');
-    menuButton.addEventListener('click', function() {
-      alert('Clicou');
+
+    const handleClickOutside = (event) => {
+      let menuButton = document.getElementById("open-side-bar");
+      let sideBar = document.getElementById("side-bar");
+      if (!sideBar.contains(event.target)) {
+          sideBar.style.display = 'none';
+          menuButton.style.display = 'none';
+          document.removeEventListener('click', handleClickOutside, false);
+      }
+  }
+  
+  const openModal = () => {
+      let menuButton = document.getElementById("open-side-bar");
+      let sideBar = document.getElementById("side-bar");
+      menuButton.style.display = 'flex'
+      sideBar.style.display = 'flex'
+      setTimeout(() => { document.addEventListener('click', handleClickOutside, false) }, 200); 
+  }
       // adiciona propiedade de display (que por padrão é none)
       // joga para direita
 
       // criar opção de clicar em qualquer lugar para fechar e um botão de fechar.
-    });
+    
   </script>
 {% endblock %}
 
