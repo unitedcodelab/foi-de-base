@@ -1,19 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;500;600&family=Roboto+Slab:wght@900&display=swap');
-
-* {
-    font-family: 'Chakra Petch', sans-serif;
-}
-
-footer > div {
+.footer-container {
     background-color: azure;
     padding: 2rem 2.5rem;
-}
-
-a {
-    color: #3b3b3b;
-    transition: 300ms ease-in-out;
-}
-
-a:hover {
-    color: #269FE6;
 }
