@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar border-bottom border-body bg-black" data-bs-theme="dark">
-    <div class="container-fluid mt-n1 justify-content-around">
+    <div class="container-fluid justify-content-around">
       <button class="navbar-brand bg-transparent border-0" id="open-side-bar">
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" >
           <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
@@ -19,7 +19,7 @@
       </a>
     </div>
     
-    <aside class="offcanvas offcanvas-start" id="side-bar" style="box-shadow: 0px 0px 100vw black">
+    <aside class="offcanvas offcanvas-start justify-content-space-between d-flex" id="side-bar" style="box-shadow: 0px 0px 100vw black">
       <div>
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasLabel">United Code Lab</h5>
@@ -27,30 +27,30 @@
         </div>
         <hr class="border border-primary border-1 border-secondary opacity-50">
         <div class="offcanvas-body">
-          <ul class="list-style-none" style="list-style: none;">
-            <li class="fs-5 p-2 g-col-6">
-              <a href="#" class="text-decoration-none link-light"><i class="fa-solid fa-house-user"></i> Início</a>
+          <ul style="list-style: none;">
+            <li class="fs-5 p-2 g-col-6 dark-link rounded-pill">
+              <a href="#" class="text-decoration-none link-light">Início</a>
             </li>
-            <li class="fs-5 p-2 g-col-6">
+            <li class="fs-5 p-2 g-col-6 dark-link rounded-pill">
               <a href="#" class="text-decoration-none link-light">Recentes</a>
             </li>
-            <li class="fs-5 p-2 g-col-6">
+            <li class="fs-5 p-2 g-col-6 dark-link rounded-pill">
               <a href="#" class="text-decoration-none link-light">Relevantes</a>
             </li>
-            <li class="fs-5 p-2 g-col-6">
+            <li class="fs-5 p-2 g-col-6 dark-link rounded-pill">
               <a href="#" class="text-decoration-none link-light">API</a>
             </li>
           </ul>
-          <hr class="border border-primary border-1 border-secondary opacity-50">
-          <div class="position-absolute top-50 start-50 translate-middle">
-            <div class="d-flex">
-              <div>
-                <i class="fa-regular fa-user"></i> 
-              </div>
-                <p>user123</p> <i class="fa-solid fa-chevron-down"></i>
-            </div>
-          </div>
         </div>
+      </div>
+    </div>
+    <hr class="border border-primary border-1 border-secondary opacity-50 w-100">
+    <div class="position-absolute bottom-0 start-50 translate-middle-x">
+      <div class="d-flex p-3">
+        <div>
+          <i class="fa-regular fa-user m-1"></i> 
+        </div>
+          <p>user123</p> <i class="fa-solid fa-chevron-down m-1"></i>
       </div>
     </aside> 
   </nav>

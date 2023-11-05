@@ -14,3 +14,7 @@
 .light-link:hover {
     color: var(--light-blue);
 }
+
+.dark-link:hover {
+    background: var(--dark-blue);
+}
