@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar border-bottom border-body bg-black" data-bs-theme="dark">
     <div class="container-fluid mt-n1 justify-content-around">
-      <button class="navbar-brand bg-transparent border-0 open-side-bar " onclick="openModal()" id="open-side-bar">
+      <button class="navbar-brand bg-transparent border-0" id="open-side-bar">
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" >
           <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
         </svg>
@@ -18,99 +18,62 @@
         <img width="48" height="48" src="https://img.icons8.com/material/48/FFFFFF/user-male-circle--v1.png" alt="user-male-circle--v1" />
       </a>
     </div>
-
-   <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-    <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasLabel">United Code Lab</h5>
-    <button type="button" class="btn-close side-bar" data-bs-dismiss="offcanvas" aria-label="Close" onclick="handleClickOutside()" id="side-bar"></button>
-  </div>
-  <hr class="border border-primary border-1 border-secondary opacity-50">
-  <div class="offcanvas-body">
-    <ul class="list-style-none" style="list-style: none;">
-      <a href="#" class="text-decoration-none link-light">
-        <li class="fs-5 p-2 g-col-6"> <i class="fa-solid fa-house-user "></i> Início</li>
-      </a>
-      <a href="#" class="text-decoration-none link-light">
-        <li class="fs-5 p-2 g-col-6">Recentes</li>
-      </a>
-      <a href="#" class="text-decoration-none link-light">
-        <li class="fs-5 p-2 g-col-6">Relevantes</li>
-      </a>
-      <a href="#" class="text-decoration-underline link-light">
-        <li class="fs-5 p-2 g-col-6">API</li>
-      </a>
-    </ul>
-    <hr class="border border-primary border-1 border-secondary opacity-50" style="margin-top: 36rem;">
-    <div class="position-absolute top-50 start-50 translate-middle" style="margin-top: 28rem;">
-      <div class="d-flex" style="margin-left: -6rem;">
-        <div style="margin-right: 5px;">
-          <i class="fa-regular fa-user"></i> 
+    
+    <aside class="offcanvas offcanvas-start" id="side-bar" style="box-shadow: 0px 0px 100vw black">
+      <div>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasLabel">United Code Lab</h5>
+          <button type="button" class="btn-close" id="close-side-bar"></button>
         </div>
-          <p>user123</p> <i class="fa-solid fa-chevron-down" style="margin-left: 5px;"></i>
+        <hr class="border border-primary border-1 border-secondary opacity-50">
+        <div class="offcanvas-body">
+          <ul class="list-style-none" style="list-style: none;">
+            <li class="fs-5 p-2 g-col-6">
+              <a href="#" class="text-decoration-none link-light"><i class="fa-solid fa-house-user"></i> Início</a>
+            </li>
+            <li class="fs-5 p-2 g-col-6">
+              <a href="#" class="text-decoration-none link-light">Recentes</a>
+            </li>
+            <li class="fs-5 p-2 g-col-6">
+              <a href="#" class="text-decoration-none link-light">Relevantes</a>
+            </li>
+            <li class="fs-5 p-2 g-col-6">
+              <a href="#" class="text-decoration-none link-light">API</a>
+            </li>
+          </ul>
+          <hr class="border border-primary border-1 border-secondary opacity-50">
+          <div class="position-absolute top-50 start-50 translate-middle">
+            <div class="d-flex">
+              <div>
+                <i class="fa-regular fa-user"></i> 
+              </div>
+                <p>user123</p> <i class="fa-solid fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-  </div> 
+    </aside> 
   </nav>
 </header>
 
 {% block extra_js %}
   <script>
-
-    const handleClickOutside = (event) => {
-      let menuButton = document.querySelector(".open-side-bar");
-      let sideBar = document.querySelector(".side-bar");
-      if (!sideBar.contains(event.target)) {
-          sideBar.style.display = 'none';
-          menuButton.style.display = 'none';
-          document.removeEventListener('click', handleClickOutside, false);
-      }
-  }
-  
-  const openModal = () => {
-      let menuButton = document.querySelector(".open-side-bar");
-      let sideBar = document.querySelector(".side-bar");
-      menuButton.style.display = 'flex'
-      sideBar.style.display = 'flex'
-      setTimeout(() => { document.addEventListener('click', handleClickOutside, false) }, 200); 
-      sideBar.innerHTML = ` <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-        <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasLabel">United Code Lab</h5>
-        <button type="button" class="btn-close side-bar" data-bs-dismiss="offcanvas" aria-label="Close" onclick="handleClickOutside()" id="side-bar"></button>
-      </div>
-      <hr class="border border-primary border-1 border-secondary opacity-50">
-      <div class="offcanvas-body">
-        <ul class="list-style-none" style="list-style: none;">
-          <a href="#" class="text-decoration-none link-light">
-            <li class="fs-5 p-2 g-col-6"> <i class="fa-solid fa-house-user "></i> Início</li>
-          </a>
-          <a href="#" class="text-decoration-none link-light">
-            <li class="fs-5 p-2 g-col-6">Recentes</li>
-          </a>
-          <a href="#" class="text-decoration-none link-light">
-            <li class="fs-5 p-2 g-col-6">Relevantes</li>
-          </a>
-          <a href="#" class="text-decoration-underline link-light">
-            <li class="fs-5 p-2 g-col-6">API</li>
-          </a>
-        </ul>
-        <hr class="border border-primary border-1 border-secondary opacity-50" style="margin-top: 36rem;">
-        <div class="position-absolute top-50 start-50 translate-middle" style="margin-top: 28rem;">
-          <div class="d-flex" style="margin-left: -6rem;">
-            <div style="margin-right: 5px;">
-              <i class="fa-regular fa-user"></i> 
-            </div>
-              <p>user123</p> <i class="fa-solid fa-chevron-down" style="margin-left: 5px;"></i>
-          </div>
-        </div>
-        </div>
-      </div> `;
-  }
-      // adiciona propiedade de display (que por padrão é none)
-      // joga para direita
-
-      // criar opção de clicar em qualquer lugar para fechar e um botão de fechar.
+    const sideBar = document.querySelector("#side-bar");
+    const openMenuButton = document.querySelector("#open-side-bar");
+    const closeMenuButton = document.querySelector("#close-side-bar");
     
+    openMenuButton.addEventListener("click", () => {
+      sideBar.setAttribute("class", "d-flex offcanvas offcanvas-start show");
+    });
+
+    closeMenuButton.addEventListener("click", () => {
+      sideBar.setAttribute("class", "offcanvas offcanvas-start hide");
+    });
+
+    window.addEventListener('click', (event) => {   
+      !(sideBar.contains(event.target) || openMenuButton.contains(event.target)) &&
+        sideBar.setAttribute("class", "offcanvas offcanvas-start hide");
+    });
   </script>
 {% endblock %}
 
