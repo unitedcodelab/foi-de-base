@@ -1,0 +1,9 @@
+@media (max-width: 650px) {
+    .search-form {
+        width: 50%;
+    }
+
+    .img-lupa {
+        display: none;
+    }
+}

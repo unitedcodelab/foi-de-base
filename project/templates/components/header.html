@@ -1,17 +1,22 @@
+{% load static %}
+{% block "../static/css/components/header.css" %}
+  <link rel="stylesheet" media="screen and (max-width: 650px)" href="../static/css/components/header.css">
+{% endblock %}
+
 <header>
   <nav class="navbar border-bottom border-body bg-black" data-bs-theme="dark">
-    <div class="container-fluid px-5">
+    <div class="container-fluid px-5 first-div-nav">
       <button class="navbar-brand bg-transparent border-0" id="open-side-bar">
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" >
           <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
         </svg>
       </button>
-      <form class="d-flex position-relative w-25" role="search">
+      <form class="d-flex position-relative w-25 search-form" role="search">
         <div class="input-container w-100">
           <input class="form-control me-2 search rounded-pill" type="search" placeholder="Procurar">
         </div> 
         <label>
-          <a href="#"><i class=" h-100 d-flex align-items-center fa-solid fa-magnifying-glass position-absolute top-50 translate-middle color text-white" style="right: 20px;"></i></a>
+          <a href="#"><i class=" h-100 d-flex align-items-center fa-solid fa-magnifying-glass position-absolute top-50 translate-middle color text-white img-lupa" style="right: 20px;"></i></a>
         </label>
       </form>
       <a href="#">
@@ -55,7 +60,7 @@
     </aside> 
   </nav>
 </header>
-
+<h1 class="teste">21</h1>
 {% block extra_js %}
   <script>
     const sideBar = document.querySelector("#side-bar");
