@@ -24,9 +24,22 @@
     z-index: -1;
     background-color: black;
 }
- 
+
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
 }
+
+@media (max-width: 480px) {
+    .bg-img section {
+      text-align: center;
+    }
+  
+    .bg-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
