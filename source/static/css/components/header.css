@@ -1,0 +1,13 @@
+@media(max-width: 650px) {
+    .search-form {
+        width: 50% !important;
+    }
+
+    .img-lupa {
+        display: none !important;
+    }
+
+    .first-div-nav {
+        padding: 0 2rem !important;
+    }
+}
