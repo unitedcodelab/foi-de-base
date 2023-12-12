@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import datetime
 
 class Post(models.Model):
     slug = models.SlugField(max_length=50, blank=True)
