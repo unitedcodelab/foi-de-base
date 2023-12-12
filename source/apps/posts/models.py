@@ -1,30 +1,52 @@
 from django.db import models
-from datetime import timezone
+from datetime import datetime
 
 class Post(models.Model):
-    author = models.ForeignKey()
-    title = models.CharField(max_length=25, verbose_name='Título do post')
-    description = models.CharField(max_length=255, verbose_name='Descrição do post')
-    comments = models.ForeignKey('Comment', on_delete=models.CASCADE)
-    language = models.CharField(max_length=25, verbose_name='Linguagem utilizada no post')
-    knowledge_level = models.IntegerField(verbose_name='Nível de conhecimento')
+    slug = models.SlugField(max_length=50, blank=True)
+    title = models.CharField(max_length=25)
+    description = models.CharField(max_length=255)
+    comments = models.ForeignKey(
+        'Comment', 
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
+    #author = models.ForeignKey()
 
-    send_at = models.DateTimeField(auto_now_add=True, verbose_name='Data e horário de envio')
-    create_at = models.DateField('Create At', default=timezone.now)
+    language = models.CharField(
+        max_length=25,
+        blank=True,
+        null=True,
+    )
+    knowledge_level = models.IntegerField(
+        blank=True,
+        null=True,
+    )
+
     is_hidden = models.BooleanField(default=False)
-    updated_at = models.DateTimeField('Update At', default=timezone.now)
+    created_at = models.DateField('Create At', auto_now_add=True)
+    updated_at = models.DateTimeField('Update At', auto_now=True)
 
-    slug = models.SlugField(max_length=50)
 
     def __str__(self):
-        return f'{self.title}',  f'{self.author}'
+        return f'{self.title}' #- {self.author}'
+
 
 
 class Comment(models.Model):
-    author = models.ForeignKey()
-    description = models.CharField(
-        max_length=255, verbose_name='Descrição do comentário')
-    send_at = models.DateTimeField(auto_now_add=True)
+    #author = models.ForeignKey()
+    description = models.CharField(max_length=255)
+    parent = models.ForeignKey(
+        'self',
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
+
+    is_hidden = models.BooleanField(default=False)
+    created_at = models.DateField('Create At', auto_now_add=True)
+    updated_at = models.DateTimeField('Update At', auto_now=True)
+
 
     def __str__(self):
         return f'{self.author}', f'{self.description}'
