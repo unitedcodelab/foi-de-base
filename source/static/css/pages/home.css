@@ -37,13 +37,12 @@
 
 @media (max-width: 480px) {
     .bg-img section {
-      text-align: center;
+        text-align: center;
     }
-  
+
     .bg-img {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-  }
-  
+}

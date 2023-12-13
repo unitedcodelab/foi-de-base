@@ -2,17 +2,17 @@
 {% load static %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/templates/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
 {% endblock %}
 
 {% block content %}
   <main>
+    <img class="position-absolute fs-2 text-decoration-underline z-2" src="{% static "images/icons/logo.png" %}" style="top: 120px; left: 50px; width: 24%;">
     <section class=" bg-img bg-img1 w-100 h-100 top-0 left-0 d-flex flex-column align-items-start justify-content-center text-light" style="min-height: 100vh;">
-      <h1 class="position-absolute fs-2 text-decoration-underline " style="top: 60px; left: 50px;">United Code Lab</h1>
-      <p class="lead fs-1 fw-bold">Sua Dúvida <br> Tem Solução</p>
-      <p class="lead fs-1">
-        <button class="btn btn-lg btn-secondary">Faça uma pergunta</button>
-      </p>
+      <div style="margin-left: 50px;">
+        <h2 class="lead fw-bold" style="font-size: 58pt;">Sua Dúvida <br> Tem Solução</h2>
+        <button class="btn btn-lg btn-secondary" style="font-size: 36pt;">Faça uma pergunta</button>
+      </div>
     </section>
 
     <section class="bg-img bg-img2 w-100 h-100 top-0 left-0 d-flex flex-column align-items-end justify-content-center px-5 text-light text-end" style="min-height: 100vh;">
@@ -22,6 +22,5 @@
         <br> É um momento de troca de ideias e interação.  
       </p>
     </section>
-      
   </main>
 {% endblock %}
