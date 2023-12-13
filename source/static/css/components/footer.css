@@ -1,4 +1,20 @@
 .footer-container {
+    justify-content: space-between;
     background-color: azure;
     padding: 2rem 2.5rem;
+}
+ 
+.footer-text {
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1447px){
+    .footer-container {
+        justify-content: center;
+    }
+
+    .footer-text {
+        gap: 1.3rem !important;
+        justify-content: center;
+    }
 }
