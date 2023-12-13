@@ -10,11 +10,29 @@
 
 @media screen and (max-width: 1447px){
     .footer-container {
-        justify-content: center;
+        justify-content: center !important;
+        flex-wrap: wrap;
     }
 
     .footer-text {
         gap: 1.3rem !important;
         justify-content: center;
+    }
+
+    .social-medias {
+        display: flex;
+        margin: auto;
+        margin-top: 8px;
+        height: 44px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .footer-text {
+        display: none !important;
+    }
+
+    .social-medias {
+        gap: 1.7rem !important;
     }
 }
