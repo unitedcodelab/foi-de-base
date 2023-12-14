@@ -1,4 +1,5 @@
 from django.db import models
+from people.models import Student
 
 class Post(models.Model):
     slug = models.SlugField(max_length=50, blank=True)
@@ -10,7 +11,7 @@ class Post(models.Model):
         blank=True,
         null=True,
     )
-    #author = models.ForeignKey()
+    author = models.ForeignKey(Student, on_delete=models.PROTECT)
 
     language = models.CharField(
         max_length=25,
@@ -28,12 +29,12 @@ class Post(models.Model):
 
 
     def __str__(self):
-        return f'{self.title}' #- {self.author}'
+        return f'{self.title} - {self.author}'
 
 
 
 class Comment(models.Model):
-    #author = models.ForeignKey()
+    author = models.ForeignKey(Student, on_delete=models.PROTECT)
     description = models.CharField(max_length=255)
     parent = models.ForeignKey(
         'self',
