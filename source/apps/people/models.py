@@ -1,21 +1,30 @@
 from django.db import models
-FEMALE = 0
-MALE = 1
-OTHERS = 2
+
+
+FEMALE = 'Female'
+MALE = 'Male'
+OTHERS = 'Others'
 
 GENDERS = (
-    ('Female', FEMALE),
-    ('Male', MALE),
-    ('Others', OTHERS),
+    (FEMALE, 'Female'),
+    (MALE, 'Male'),
+    (OTHERS, 'Others'),
 )
 
+
 class Student(models.Model):  
+    user = models.OneToOneField(
+        'auth.User', 
+        on_delete=models.CASCADE,
+        default=None,
+    )
+
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
-    gender = models.CharField(choices=GENDERS, max_length=6)
+    gender = models.CharField(choices=GENDERS, max_length=6, default=OTHERS)
     biography = models.CharField(max_length=500)
     # photo = models.ImageField(upload_to='profile_photo', blank=True, null=True)
-    languages = models.CharField(max_length=200, blank=True, null=True,)
+    languages = models.CharField(max_length=200, blank=True, null=True)
     github = models.URLField(blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
 

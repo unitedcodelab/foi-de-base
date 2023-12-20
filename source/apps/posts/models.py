@@ -1,6 +1,7 @@
 from django.db import models
 from people.models import Student
 
+
 class Post(models.Model):
     slug = models.SlugField(max_length=50, blank=True)
     title = models.CharField(max_length=25)
@@ -11,7 +12,13 @@ class Post(models.Model):
         blank=True,
         null=True,
     )
-    author = models.ForeignKey(Student, on_delete=models.PROTECT)
+    author = models.ForeignKey(
+        Student,
+        related_name='posts', 
+        on_delete=models.PROTECT,
+        blank=True,
+        null=True,
+    )
 
     language = models.CharField(
         max_length=25,
@@ -29,18 +36,22 @@ class Post(models.Model):
 
 
     def __str__(self):
-        return f'{self.title} - {self.author}'
+        return f'{self.title}'
 
 
 
 class Comment(models.Model):
-    author = models.ForeignKey(Student, on_delete=models.PROTECT)
+    author = models.ForeignKey(
+        Student,
+        related_name='comments', 
+        on_delete=models.PROTECT,
+        default=None,
+    )
     description = models.CharField(max_length=255)
     parent = models.ForeignKey(
         'self',
         on_delete=models.CASCADE,
-        blank=True,
-        null=True,
+        default=None,
     )
 
     is_hidden = models.BooleanField(default=False)
@@ -49,4 +60,4 @@ class Comment(models.Model):
 
 
     def __str__(self):
-        return f'{self.author}', f'{self.description}'
+        return f' {self.description}'
