@@ -1,15 +1,20 @@
 import os
 import sys
+from dotenv import load_dotenv
 from pathlib import Path
 
+load_dotenv()
 
 PROJECT_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, '../apps'))
 
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-SECRET_KEY = "b#s*_o(3t3ai_k(c5po@h7a=nj5#vjkd3u7ckhnx@)mi=8fn67"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+SECRET_KEY = str(os.getenv("SECRET_KEY"))
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+]
 
 
 INSTALLED_APPS = [
@@ -19,8 +24,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-
+    
+    "apps.people",
+    "apps.posts"
 ]
 
 MIDDLEWARE = [
@@ -38,7 +44,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["./templates", "**/templates", str(BASE_DIR / "templates")],
+        "DIRS": ["./templates", "**/templates", f"{BASE_DIR}/source/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -55,18 +61,21 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+    'default': {
+        'ENGINE':str(os.getenv("DATABASE_ENGINE")),
+        'NAME':str(os.getenv("DATABASE_NAME")),
+        'USER':str(os.getenv("DATABASE_USER")),
+        'PASSWORD':str(os.getenv("DATABASE_PASSWORD")),
+        'HOST':str(os.getenv("DATABASE_HOST")),
     }
 }
 
 
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",},
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",}
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator", },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", },
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator", },
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", }
 ]
 
 LANGUAGE_CODE = "en-us"
@@ -76,7 +85,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [str(BASE_DIR / "static")]
+STATICFILES_DIRS = [f"{BASE_DIR}/source/static"]
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
