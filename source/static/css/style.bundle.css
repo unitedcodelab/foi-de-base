@@ -18,3 +18,33 @@
 .dark-link:hover {
     background: var(--dark-blue);
 }
+
+.btn {
+    border: none;
+}
+
+.success-link {
+    color: var(--light-green);
+    transition: 300ms ease-in-out;
+}
+
+.success-link:hover {
+    color: var(--dark-blue);
+}
+
+.btn-light {
+    background: var(--light-blue);
+    color: var(--white);
+    transition: 300ms ease-in-out;
+}
+
+.btn-light:hover {
+    background: #1c7ebf;
+    color: var(--white);
+}
+
+.btn-dark {
+    background: var(--dark-blue);
+    color: var(--white);
+    transition: 300ms ease-in-out;
+}
