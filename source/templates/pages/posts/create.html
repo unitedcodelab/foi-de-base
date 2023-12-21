@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_js %}
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href={% static "css/pages/posts/create.css" %}>
+{% endblock %}
+
+{% block content %}
+    <main class="min-vh-100 container d-flex flex-column mt-5">
+        <h1 class="text-center">Crie o seu post!</h1>
+        <div class="d-flex gap-3">
+            <section style="width: 30vw;">
+                <form action="{% url 'create_post' %}" method="POST" class="d-flex flex-column gap-4">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="title">Título</label>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Digite o título" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Conteúdo</label>
+                        <textarea class="form-control" name="content" id="content" cols="30" rows="24"
+                            placeholder="Digite em Markdown (.md)" oninput="autoExpand(this)" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-light w-100">Publicar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section style="width: 40vw;">
+                <div class="preview mt-4 border p-3 rounded">
+                    <p class="h1" id="title-preview"></p>
+                    <div id="markdown-preview"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+{% endblock %}
+
+{% block extra_js %}
+    <script src={% static "javascript/pages/posts/create.js" %}></script>
+{% endblock %}

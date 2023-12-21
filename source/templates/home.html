@@ -1,7 +1,26 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+{% endblock %}
 
 {% block content %}
-    {% include "components/header.html" %}
-    <h1>Começamos Aqui.</h1>
-    {% include "components/footer.html" %}
+  <main>
+    <img class="position-absolute fs-2 text-decoration-underline z-2" src="{% static "images/icons/logo.png" %}" style="top: 120px; left: 50px; width: 24%;">
+    <section class=" bg-img bg-img1 w-100 h-100 top-0 left-0 d-flex flex-column align-items-start justify-content-center text-light" style="min-height: 100vh;">
+      <div style="margin-left: 50px;">
+        <h2 class="lead fw-bold" style="font-size: 58pt;">Sua Dúvida <br> Tem Solução</h2>
+        <a href="/posts/criar" class="btn btn-lg btn-secondary" style="font-size: 36pt;">Faça uma pergunta</a>
+      </div>
+    </section>
+
+    <section class="bg-img bg-img2 w-100 h-100 top-0 left-0 d-flex flex-column align-items-end justify-content-center px-5 text-light text-end" style="min-height: 100vh;">
+      <h2>A importância de um fórum sobre programação</h2>
+      <p>
+        Por meio dessa ferramenta, os alunos compartilham dúvidas, <br> ajudam uns aos outros e constroem uma comunidade.
+        <br> É um momento de troca de ideias e interação.  
+      </p>
+    </section>
+  </main>
 {% endblock %}
