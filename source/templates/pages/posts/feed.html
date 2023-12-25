@@ -1,22 +1,31 @@
+{% include "base.html" %}
 {% load static %}
 {% block "../../static/css/components/feed.css" %}
   <link rel="stylesheet" href="../../static/css/components/feed.css">
 {% endblock %}
-{% include "base.html" %}
 
 
-<div class="container text-center justify-content-between">
-    <div class="row">
-        <div class="col ">
-          <ul class=" justify-content-around">
-            <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Início</li>
-            <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Tópicos</li>
-            <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Configurações</li>
-            <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Termos de uso</li>
-            <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Quem somos</li>
-            <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Dê-nos seu feedback</li>
-            <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> </li>
+<div class="container text-center">
+    <div class="row align-items-start justify-content-between">
+        <div class="col">
+          <div class="menu">
+            <ul class="">
+              <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Início</li>
+              <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Tópicos</li>
+              <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Configurações</li>
+              <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Termos de uso</li>
+              <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Quem somos</li>
+              <li> <a href="#" target="_self" rel="next" class="text-white text-decoration-none"> Dê-nos seu feedback</li>
+          </div>
+            <div class="area-imgs d-flex">
+              <div><i class="fa-brands fa-github w-25 p-3"></i></div>
+              <div><i class="fa-brands fa-x-twitter w-25 p-3"></i></div>
+              <div><i class="fa-brands fa-linkedin w-25 p-3"></i></div>
+              <div><i class="fa-brands fa-instagram w-50 p-3"></i></div>
+              <div><i class="fa-brands fa-whatsapp w-25 p-3"></i></div>
+            </div>
           </ul>
+          <div class="justify-content-start"><button type="button" class="btn btn-primary">Criar Post</button></div>
         </div>
         <div class="col feed">
 
@@ -28,7 +37,9 @@
 
         </div>
         <div class="col for_you">
-          3 of 3
+          <div>
+            <h5 class="text-white">Para você</h1>
+          </div>
         </div>
       </div>
 </div>

@@ -7,6 +7,18 @@ def feed(request):
     return render(request, '../templates/pages/posts/feed.html')
 
 
+def get_post(request):
+    context = {}
+
+    posts = Post.objects.filter(
+        author=request.user.student
+    )
+    context = {
+        "posts": posts
+    }
+    return render(request, 'pages/posts/feed.html', context)
+
+
 def create_post(request):
     if request.method == "POST":
         try:
