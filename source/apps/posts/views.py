@@ -1,10 +1,14 @@
 from django.shortcuts import render
+
 from .models import *
+
 from .utils.create_slug import create_slug
+from .utils.verifications.create_post import Verifications 
+
 
 
 def feed(request):
-    return render(request, '../templates/pages/posts/feed.html')
+    return render(request, 'pages/posts/feed.html')
 
 
 def get_post(request):
@@ -21,22 +25,25 @@ def get_post(request):
 
 def create_post(request):
     if request.method == "POST":
-        try:
-            author = request.user.student
-        except:
-            author = None  # AnnonymousUser
+        success, message = Verifications.create_post(request.POST)
+        if not success:
+            return render(request, "pages/posts/create.html", {
+                "error": {
+                    "message": message,
+                }
+            }, status=400)
 
-        slug = create_slug(
-            title=request.POST["title"]
-        )
+        slug = create_slug(title=request.POST["title"])
 
-        post = Post.objects.create(
+        try: author = Student.objects.get(user=request.user)
+        except: author = None
+
+        Post.objects.create(
             slug=slug,
             title=request.POST["title"],
-            description=request.POST["content"],
+            content=request.POST["content"],
             author=author
         )
-        post.save()
 
         # redirect to post
 

@@ -5,7 +5,7 @@ from people.models import Student
 class Post(models.Model):
     slug = models.SlugField(max_length=50, blank=True)
     title = models.CharField(max_length=25)
-    description = models.CharField(max_length=255)
+    content = models.CharField(max_length=255)
     comments = models.ForeignKey(
         'Comment', 
         on_delete=models.CASCADE,
@@ -31,12 +31,12 @@ class Post(models.Model):
     )
 
     is_hidden = models.BooleanField(default=False)
-    created_at = models.DateField('Create At', auto_now_add=True)
-    updated_at = models.DateTimeField('Update At', auto_now=True)
+    created_at = models.DateField('Created At', auto_now_add=True)
+    updated_at = models.DateTimeField('Updated At', auto_now=True)
 
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.title}, slug: {self.slug}'
 
 
 
@@ -55,9 +55,9 @@ class Comment(models.Model):
     )
 
     is_hidden = models.BooleanField(default=False)
-    created_at = models.DateField('Create At', auto_now_add=True)
-    updated_at = models.DateTimeField('Update At', auto_now=True)
+    created_at = models.DateField('Created At', auto_now_add=True)
+    updated_at = models.DateTimeField('Updated At', auto_now=True)
 
 
     def __str__(self):
-        return f' {self.description}'
+        return f'{self.description}'
