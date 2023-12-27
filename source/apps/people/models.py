@@ -20,6 +20,7 @@ class Student(models.Model):
     )
 
     name = models.CharField(max_length=50)
+    nick = models.CharField(max_length=50, unique=True)
     email = models.EmailField(max_length=254)
     gender = models.CharField(choices=GENDERS, max_length=6, default=OTHERS)
     biography = models.CharField(max_length=500)

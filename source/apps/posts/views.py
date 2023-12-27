@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import HttpResponse, render, get_object_or_404
 
 from .models import *
 
@@ -6,32 +6,37 @@ from .utils.create_slug import create_slug
 from .utils.verifications.create_post import Verifications 
 
 
-
 def feed(request):
     return render(request, 'pages/posts/feed.html')
 
 
-def get_post(request):
-    context = {}
+def get_student_posts(request, student_nick):
+    student = get_object_or_404(Student, nick=student_nick)
+    posts = Post.objects.filter(author=student)
 
-    posts = Post.objects.filter(
-        author=request.user.student
-    )
     context = {
         "posts": posts
     }
-    return render(request, 'pages/posts/feed.html', context)
+    return render(request, 'pages/posts/students/posts.html', context)
+
+
+def get_post(request, student_nick, slug):
+    post = get_object_or_404(Post, slug=slug)
+    success, _ = Verifications.get_post(post, student_nick)
+    if not success:
+        return HttpResponse(status=400)
+
+    context = {
+        "post": post
+    }
+    return render(request, 'pages/posts/post.html', context)
 
 
 def create_post(request):
     if request.method == "POST":
-        success, message = Verifications.create_post(request.POST)
+        success, _ = Verifications.create_post(request.POST)
         if not success:
-            return render(request, "pages/posts/create.html", {
-                "error": {
-                    "message": message,
-                }
-            }, status=400)
+            return HttpResponse(status=400)
 
         slug = create_slug(title=request.POST["title"])
 
@@ -45,6 +50,6 @@ def create_post(request):
             author=author
         )
 
-        # redirect to post
+        return render(request, "pages/posts/post.html")
 
     return render(request, "pages/posts/create.html")
