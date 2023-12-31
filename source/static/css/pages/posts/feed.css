@@ -2,12 +2,12 @@
     --light-blue: #269FE6;
     --dark-blue: #2700c2;
     --white: #f5f5f5;
-    --grey: #4A4A4A;
+    --grey: #171717;
     --light-green: #aaffa8;
 }
 
-* {
-    background: #171717 !important;
+.main-container {
+    background-color: var(--grey);
 }
 
 ul {

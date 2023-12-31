@@ -3,11 +3,22 @@ from django.shortcuts import HttpResponse, render, get_object_or_404
 from .models import *
 
 from .utils.create_slug import create_slug
-from .utils.verifications.create_post import Verifications 
+from .utils.verifications.create_post import Verifications
 
 
 def feed(request):
-    return render(request, 'pages/posts/feed.html')
+    context = {}
+
+    # if request.method == "GET":
+    #     posts = Post.objects.filter(
+    #         author=request.user.student
+    #     )
+
+    # context = {
+    #     "posts": posts
+    # }
+
+    return render(request, 'pages/posts/feed.html', **context)
 
 
 def get_student_posts(request, student_nick):
@@ -40,8 +51,10 @@ def create_post(request):
 
         slug = create_slug(title=request.POST["title"])
 
-        try: author = Student.objects.get(user=request.user)
-        except: author = None
+        try:
+            author = Student.objects.get(user=request.user)
+        except:
+            author = None
 
         Post.objects.create(
             slug=slug,
