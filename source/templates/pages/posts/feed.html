@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_js %}
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href={% static "css/pages/posts/feed.css" %}>
+{% endblock %}
+
+
+{% block content %}
+<div class="d-flex main-container justify-content-between">
+  <div class="container-left">
+    <div class="menu">
+      <ul>
+        <div>
+          <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Início</a></li>
+        </div>
+        <div>
+          <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Tópicos</a></li>
+        </div>
+        <div>
+          <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Configurações</a></li>
+        </div>
+        <div>
+          <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Termos de uso</a></li>
+        </div>
+        <div>
+          <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Quem somos</a></li>
+        </div>
+        <div>
+          <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Colaboradores do UCL</a>
+          </li>
+        </div>
+        <div>
+          <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Dê-nos seu feedback</a></li>
+        </div>
+      </ul>
+      <div class="social d-flex">
+        <div><a href="#" target="_blank" rel="external"><i class="fa-brands fa-x-twitter text-white mx-3"></i></a></div>
+        <div><a href="#" target="_blank" rel="external"><i class="fa-brands fa-instagram text-white mx-3"></i></a></div>
+        <div><a href="#" target="_blank" rel="external"><i class="fa-brands fa-linkedin-in text-white mx-3"></i></a>
+        </div>
+        <div><a href="#" target="_blank" rel="external"><i class="fa-brands fa-whatsapp text-white mx-3"></i></a></div>
+        <div><a href="https://github.com/unitedcodelab" target="_blank" rel="external"><i
+              class="fa-brands fa-github text-white mx-3"></i></a></div>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary mx-5 mt-4">Criar Post</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-mid w-25 ">
+    <ul class="d-flex justify-content-evenly">
+      <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Relevantes</a></li>
+      <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Top</a></li>
+      <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Recentes</a></li>
+      <li><i class="fa-solid fa-filter text-white"></i></li>
+    </ul>
+  </div>
+
+  <div class="container-right mx-5 bg-black w-25 rounded rounded-4 position-relative">
+    <div class="">
+      <h3 class="text-white text-center">Para você</h3>
+    </div>
+    <ul>
+      <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Python</a><i
+          class="fa-brands fa-python text-primary "></i></li>
+      <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Java</a><i
+          class="fa-brands fa-java text-white "></i></li>
+      <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Ruby</a> <i
+          class="fa-regular fa-gem text-danger"></i></i></li>
+      <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">C#</a><i
+          class="fa-solid fa-c "></i></li>
+      <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">PHP</a><i
+          class="fa-brands fa-php text-primary-emphasis "></i></li>
+      <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">JavaScript</a><i
+          class="fa-brands fa-js text-warning "></i></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src={% static "javascript/pages/posts/create.js" %}></script>
+{% endblock %}
