@@ -10,10 +10,30 @@
     background-color: var(--grey);
 }
 
+@media (max-width: 634px) {
+    .container-mid {
+        margin: 0 25rem 0 0 !important;
+        justify-content: space-between !important;
+    }
+
+    .container-right {
+        margin: 0 35rem 0 0 !important;
+    }
+}
+
+
 ul {
     list-style: none;
 }
 
 button {
     background-color: #269FE6 !important;
+}
+
+.social:hover {
+    color: var(--light-blue) !important;
+}
+
+.container-right {
+    height: fit-content;
 }
