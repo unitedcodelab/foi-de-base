@@ -1,3 +1,5 @@
+from people.models import Student
+
 class Verifications:
     def create_post(POST):
         if POST["title"] == "":
@@ -6,6 +8,9 @@ class Verifications:
             return False, "Titulo deve começar com uma letra" 
         if POST["content"] == "":
             return False, "Conteúdo não pode ser vazio"
+        
+        if Student.objects.filter(nick=POST["title"]).exists():
+            return False, "Um post não pode ter o mesmo nome que um estudante"
         
         return True, "Post criado com sucesso"
     

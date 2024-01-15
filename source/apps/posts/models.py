@@ -47,7 +47,7 @@ class Comment(models.Model):
         on_delete=models.PROTECT,
         default=None,
     )
-    description = models.CharField(max_length=255)
+    content = models.CharField(max_length=255)
     parent = models.ForeignKey(
         'self',
         on_delete=models.CASCADE,
