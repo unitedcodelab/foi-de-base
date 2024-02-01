@@ -4,7 +4,7 @@ from . import views
 
 
 urlpatterns = [
-    path("feed/", views.feed, name="feed"),
+    # path("feed/", views.feed, name="feed"),
 
     path("criar/", views.create_post, name="create_post"),
     

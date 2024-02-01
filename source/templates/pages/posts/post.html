@@ -1,6 +1,94 @@
 {% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href={% static "css/pages/posts/post.css" %}>
+{% endblock %}
 
 {% block content %}
-    <h1>Post page</h1>
-    {{post}}
+
+<div class="d-flex container-full">
+    <aside class="container-aside col-3 position-relative">
+        <div class="container-left">
+            <div class="menu">
+                <ul>
+                    <div class="mt-5">
+                        <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Início</a>
+                        </li>
+                    </div>
+                    <div class="mt-5">
+                        <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Tópicos</a>
+                        </li>
+                    </div>
+                    <div class="mt-5">
+                        <li><a href="#" target="_self" rel="next"
+                                class="text-white text-decoration-none">Configurações</a>
+                        </li>
+                    </div>
+                    <div class="mt-5">
+                        <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Termos de
+                                uso</a>
+                        </li>
+                    </div>
+                    <div class="mt-5">
+                        <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Quem somos</a>
+                        </li>
+                    </div>
+                    <div class="mt-5">
+                        <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Colaboradores
+                                do
+                                UCL</a>
+                        </li>
+                    </div>
+                    <div class="mt-5">
+                        <li><a href="#" target="_self" rel="next" class="text-white text-decoration-none">Dê-nos seu
+                                feedback</a></li>
+                    </div>
+                </ul>
+                <div class="mt-5 d-flex">
+                    <div><a href="#" target="_blank" rel="external"><i
+                                class="fa-brands fa-x-twitter text-white mx-3 social"></i></a></div>
+                    <div><a href="#" target="_blank" rel="external"><i
+                                class="fa-brands fa-instagram text-white mx-3 social"></i></a></div>
+                    <div><a href="#" target="_blank" rel="external"><i
+                                class="fa-brands fa-linkedin-in text-white mx-3 social"></i></a>
+                    </div>
+
+                    <div><a href="#" target="_blank" rel="external"><i
+                                class="fa-brands fa-whatsapp text-white mx-3"></i></a></div>
+                    <div><a href="https://github.com/unitedcodelab" target="_blank" rel="external"><i
+                                class="fa-brands fa-github text-white mx-3"></i></a></div>
+                </div>
+                <div class="mt-4">
+                    <a href="../posts/create.html" target="_self" rel="next" class="btn btn-primary mx-5 mt-4">Criar Post</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="position-absolute top-50 start-50 translate-middle">
+            <hr class="border border-danger border-2 opacity-50">
+        </div>
+    </aside>
+    <main class="col-7 main-container position-relative text-center">
+        <section class="data-post d-flex mt-4 flex-column p-2">
+            <h1 class="data-post-title text-white">{{post.title}}</h1>
+        </section>
+        <section class="data-post-description d-flex text-center justify-content-evenly position-absolute top-6">
+            <p class="p-2 text-white ">{{post.author}}</p>
+            <p class="p-2 text-white ">Criado: {{ post.created_at | date:'d/m/Y' }} {{ post.created_at | time:'H:i' }}</p>
+            <p class="p-2 text-white ">Modificado há {{post.updated_at | timesince}}</p>
+        </section>
+        <div>
+            <p class="pt-5 mt-3 text-white position-relative">{{post.content}}</p>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary position-absolute top-50 end-0 translate-middle-y">Criar comentário</a>
+        </div>
+        <div>
+            <p>{{post.comments}}</p>
+        </div>
+    </main>
+    <div class="complet col-2 position-relative">
+        <h1 class="text-white">teste</h1>
+    </div>
+</div>
 {% endblock %}

@@ -9,14 +9,13 @@ from .utils.verifications.create_post import Verifications
 def feed(request):
     context = {}
 
-    # if request.method == "GET":
-    #     posts = Post.objects.filter(
-    #         author=request.user.student
-    #     )
+    posts = Post.objects.filter(
+        author=request.user.student
+    )
 
-    # context = {
-    #     "posts": posts
-    # }
+    context = {
+        "posts": posts
+    }
 
     return render(request, 'pages/posts/feed.html', context)
 
@@ -30,7 +29,7 @@ def get_all_student_posts(request, student_nick):
     })
 
 
-def get_single_student_post(request, student_nick, slug):   
+def get_single_student_post(request, student_nick, slug):
     post = get_object_or_404(Post, slug=slug)
 
     success, message = Verifications.get_post(post, student_nick)
@@ -41,6 +40,7 @@ def get_single_student_post(request, student_nick, slug):
     return render(request, 'pages/posts/post.html', {
         "post": post
     })
+
 
 def get_unknown_user_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
@@ -71,9 +71,9 @@ def create_post(request):
             author=author
         )
 
-        if author is None: 
+        if author is None:
             return redirect(f"/posts/{slug}")
-        
+
         return redirect(f"/posts/{author.nick}/{slug}")
 
     return render(request, "pages/posts/create.html")
